@@ -1,6 +1,8 @@
 import functools
 import time
 
+from search_fixture import test_list
+
 
 def time_exec(func):
     @functools.wraps(func)
@@ -44,3 +46,15 @@ def classic_search(sample: list, item: str) -> [bool, str]:
             return index
 
     return None
+
+
+if __name__ == "__main__":
+    test_list.sort()
+
+    name = 'Magdalena'
+
+    index = classic_search(sample=test_list, item=name)
+    print(f'Index: {index} for name: {name}')
+
+    index = binary_search(sample=test_list, item=name)
+    print(f'Index: {index} for name: {name}')
